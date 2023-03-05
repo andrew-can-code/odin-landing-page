@@ -1,0 +1,119 @@
+body {
+  font-family: 'Roboto';
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: 0;
+}
+
+.dark-background {
+  background-color: #1f2937;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  padding: 0 5% 0 0;
+}
+
+.nav-links, a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: aliceblue;
+}
+
+
+.header-logo {
+  width: 100px;
+  margin: 20px 10%;
+}
+
+.gamer-pics {
+  flex: 50%;
+  padding-left: 2%;
+}
+
+.gamer-pics, img {
+  width: auto;
+  height: auto;
+}
+
+.subheader {
+  display: flex;
+  padding: 100px 10%;
+}
+
+.subtext {
+  flex: 50%
+}
+
+@media (max-width: 1018px) {
+  .subheader {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .gamer-pics {
+    padding: 50px 0;
+    margin: auto;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.subheader, p {
+  text-align: left;
+}
+
+.subheader, button {
+  text-align: center;
+}
+
+button {
+  background-color: #3882f6;
+  border: 0;
+  border-radius: 5px;
+  padding: 3px 10px;
+  font-size: large;
+  font-family: 'Roboto';
+}
+
+
+.content {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  color: black;
+}
+
+.white-background, h2 {
+  color: black;
+}
+
+.gray-background {
+  background-color: lightgray;
+  color: black;
+}
+
+.carousel-image {
+  border: 3px #3882f6;
+  background-color: rgb(179, 179, 179);
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+} 
+
+.blue-background {
+  background-color: #3882f6;
+  padding: 20px 40px 20px 40px;
+  border-radius: 10px;
+  margin: 10%;
+}
