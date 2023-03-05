@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,18 @@ body {
   padding: 0 5% 0 0;
 }
 
+nav select {
+  display: none;
+  font-size: 30px;
+  text-align: center;
+  padding: 5px;
+}
+
+@media (max-width: 600px) {
+  nav a     { display: none; }
+  nav select { display: inline-block; }
+}
+
 .nav-links, a {
   padding: 0 20px;
   text-decoration: none;
@@ -38,7 +50,7 @@ body {
   padding-left: 2%;
 }
 
-.gamer-pics, img {
+.main-pic {
   width: auto;
   height: auto;
 }
@@ -59,8 +71,12 @@ body {
   }
   
   .gamer-pics {
-    padding: 50px 0;
+    padding: 50px 10px;
     margin: auto;
+  }
+
+  .main-pic {
+    width: 90%;
   }
 
   .content {
@@ -101,6 +117,25 @@ button {
 .gray-background {
   background-color: lightgray;
   color: black;
+}
+
+.quote, .quoter {
+  margin: auto;
+  text-align: center;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: lighter;
+  background-color: darkslategray;
+  color: white;
+}
+
+.quote {
+  padding: 50px 2% 1px 2%;
+  
+}
+
+.quoter {
+  padding: 1px 2% 50px 2%;
 }
 
 .carousel-image {
