@@ -7,6 +7,11 @@ body {
   margin: 0;
 }
 
+button {
+  color: white;
+  background-color: #3882f6;
+}
+
 .dark-background {
   background-color: #1f2937;
 }
@@ -85,32 +90,34 @@ nav select {
   }
 }
 
-.subheader, p {
+.subheader p {
   text-align: left;
 }
 
-.subheader, button {
+.subheader button {
+  background-color: #3882f6;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 22px;
+  border: 0;
   text-align: center;
+  margin: auto;
 }
 
-button {
-  background-color: #3882f6;
-  border: 0;
-  border-radius: 5px;
-  padding: 3px 10px;
-  font-size: large;
-  font-family: 'Roboto';
-}
 
 
 .content {
   display: flex;
-  padding: 20px;
+  padding: 100px;
   justify-content: space-between;
   color: black;
 }
 
-.white-background, h2 {
+.content p {
+  text-align: center;
+}
+
+.white-background h2 {
   color: black;
 }
 
@@ -122,11 +129,10 @@ button {
 .quote, .quoter {
   margin: auto;
   text-align: center;
-  font-size: 40px;
+  font-size: 36px;
   font-style: italic;
-  font-weight: lighter;
-  background-color: darkslategray;
-  color: white;
+  font-weight: light;
+  color: rgb(26, 26, 26)
 }
 
 .quote {
@@ -139,11 +145,12 @@ button {
 }
 
 .carousel-image {
-  border: 3px #3882f6;
+  border: 3px solid #3882f6;
   background-color: rgb(179, 179, 179);
   width: 200px;
   height: 200px;
   border-radius: 20px;
+  transition: transform 250ms ease-out;
 } 
 
 .blue-background {
@@ -151,4 +158,30 @@ button {
   padding: 20px 40px 20px 40px;
   border-radius: 10px;
   margin: 10%;
+}
+
+.cta {
+  padding: 3% 5%;
+  text-align: left;
+  display: flex;
+}
+
+.cta button {
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px
+}
+
+.cta-child-2 {
+  justify-content: end;
+  margin: auto;
+}
+
+.content-box:hover {
+  background-color: lightgrey;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transform-origin: center;
+
 }
