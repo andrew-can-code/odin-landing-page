@@ -5,37 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Codex Clan | Landing Page</title>
   <link rel="icon" type="image/x-icon" href="images/logo.png">
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+        <div class="navbar-logo"><img src="images/logo.png" alt=""></div>
+      </a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="#">News</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#">Streams</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#">Members</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="#">About</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <div class="dark-background">
-    <div class="navbar">
-      <img src="images/logo.png" alt="header-logo" class="header-logo">
-
-      <div class="nav-links">
-        <nav> 
-            <a href="#">News</a>
-            <a href="#">Streams</a> 
-            <a href="#">About</a> 
-          <select> 
-            <option value="" selected="selected">Navigation</option> 
-            
-            <option value="/">Header link one</option> 
-            <option value="/collections/all">header link two</option> 
-            <option value="/blogs/five-simple-steps-blog">header link three</option> 
-          </select> 
-        </nav>
-      </div>
-    </div>
     <div class="subheader">
       <div class="subtext">
         <h1>We're small but mighty!</h1>
         <p>Welcome to the Codex Clan! We are a group of dedicated gamers who share a passion for competitive play and teamwork. Our clan was founded on the principles of respect, sportsmanship, and a drive for success. We specialize in Competitive Online Multiplayers and have members from all around the US, from Maine to California.
           <br>
           <br>
-        Our clan members are mostly casual players, but we all share a commitment to improving our skills and helping our teammates do the same. We organize regular practice sessions, participate in tournaments and leagues, and provide a supportive community for players of all levels.
+        Our clan members are mostly casual players, but we all share a commitment to improving our skills and helping our teammates do the same. We organize regular practice sessions, participate in ranked matchmaking, and provide a supportive community for players of all levels.
           <br>
           <br>
         If you're looking for a group of like-minded gamers who value skill, teamwork, and camaraderie, then the Codex Clan is the place for you. Join us today and become part of a thriving community of gamers!</p>
@@ -48,7 +52,7 @@
   </div>
 
   <div class="white-background">
-    <h2>Games We Play!</h2>
+    <h1>Games We Play!</h1>
     <div class="content">
       <div class="content-box">
         <img src="images/rb6.png" alt="" class="carousel-image">
@@ -70,8 +74,10 @@
   </div>
 
   <div class="gray-background">
-    <p class="quote">"I've been in the Codex Clan since 2018 and I couldn't be happier here."</p>
-    <p class="quoter">-Nathaniel Riis</p>
+    <div class="testimonial">
+      <p class="quote">"Joining the Codex Clan has been one of the best decision I've made. The community is supportive, and we dominate in every game we play. It's like having a second family."</p>
+      <p class="quoter">-Nathaniel Riis</p>
+    </div>
   </div>
 
   <div class="blue-background">
@@ -85,5 +91,25 @@
       </div>
     </div>
   </div>
+
+  <div class="footer">
+    <p>Copyright © The Codex Clan 2023</p>
+  </div>
+  <script>
+    const navbarToggle = navbar.querySelector("#navbar-toggle");
+    const navbarMenu = document.querySelector("#navbar-menu");
+    const navbarLinksContainer = navbarMenu.querySelector(".navbar-links");
+    let isNavbarExpanded = navbarToggle.getAttribute("aria-expanded") === "true";
+
+    const toggleNavbarVisibility = () => {
+      isNavbarExpanded = !isNavbarExpanded;
+      navbarToggle.setAttribute("aria-expanded", isNavbarExpanded);
+    };
+
+    navbarToggle.addEventListener("click", toggleNavbarVisibility);
+
+    navbarLinksContainer.addEventListener("click", (e) => e.stopPropagation());
+    navbarMenu.addEventListener("click", toggleNavbarVisibility);
+  </script>
 </body>
 </html>

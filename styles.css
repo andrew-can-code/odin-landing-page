@@ -16,38 +16,175 @@ button {
   background-color: #1f2937;
 }
 
-.navbar {
+:root {
+  --navbar-bg-color: #1f2937;
+  --navbar-text-color: hsl(0, 0%, 85%);
+  --navbar-text-color-focus: white;
+  --navbar-bg-contrast: hsl(0, 0%, 25%);
+}
+
+.container {
+  max-width: 1000px;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#navbar {
+  --navbar-height: 80px;
+  position: fixed;
+  height: var(--navbar-height);
+  background-color: var(--navbar-bg-color);
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-container {
   display: flex;
   justify-content: space-between;
+  height: 100%;
   align-items: center;
 }
 
-.nav-links {
-  padding: 0 5% 0 0;
+.navbar-item {
+  margin: 0.4em;
+  width: 100%;
 }
 
-nav select {
-  display: none;
-  font-size: 30px;
-  text-align: center;
-  padding: 5px;
-}
-
-@media (max-width: 600px) {
-  nav a     { display: none; }
-  nav select { display: inline-block; }
-}
-
-.nav-links, a {
-  padding: 0 20px;
+.home-link,
+.navbar-link {
+  color: var(--navbar-text-color);
   text-decoration: none;
-  color: aliceblue;
+  display: flex;
+  font-weight: 400;
+  align-items: center;
 }
 
+.home-link:is(:focus, :hover) {
+  color: var(--navbar-text-color-focus);
+}
 
-.header-logo {
-  width: 100px;
-  margin: 20px 10%;
+.navbar-link {
+  justify-content: center;
+  width: 100%;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+}
+
+.navbar-link:is(:focus, :hover) {
+  color: var(--navbar-text-color-focus);
+  background-color: var(--navbar-bg-contrast);
+}
+
+.navbar-logo img {
+  width: 65px;
+  padding: 10px 0 0 0;
+}
+
+#navbar-toggle {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.icon-bar {
+  display: block;
+  width: 25px;
+  height: 4px;
+  margin: 2px;
+  background-color: var(--navbar-text-color);
+}
+
+#navbar-toggle:is(:focus, :hover) .icon-bar {
+  background-color: var(--navbar-text-color-focus);
+}
+
+#navbar-toggle[aria-expanded="true"] .icon-bar:is(:first-child, :last-child) {
+  position: absolute;
+  margin: 0;
+  width: 30px;
+}
+
+#navbar-toggle[aria-expanded="true"] .icon-bar:first-child {
+  transform: rotate(45deg);
+}
+
+#navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+
+#navbar-toggle[aria-expanded="true"] .icon-bar:last-child {
+  transform: rotate(-45deg);
+}
+
+#navbar-menu {
+  position: fixed;
+  top: var(--navbar-height);
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  left: 0;
+  right: 0;
+}
+
+#navbar-toggle[aria-expanded="true"]+#navbar-menu {
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-links {
+  list-style: none;
+  position: absolute;
+  background-color: var(--navbar-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 1.4rem;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+#navbar-toggle[aria-expanded="true"]+#navbar-menu .navbar-links {
+  padding: 1em;
+}
+
+@media screen and (min-width: 700px) {
+
+  #navbar-toggle,
+  #navbar-toggle[aria-expanded="true"] {
+      display: none;
+  }
+
+  #navbar-menu,
+  #navbar-toggle[aria-expanded="true"] #navbar-menu {
+      visibility: visible;
+      opacity: 1;
+      position: static;
+      display: block;
+      height: 100%;
+  }
+
+  .navbar-links,
+  #navbar-toggle[aria-expanded="true"] #navbar-menu .navbar-links {
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      position: static;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+  }
 }
 
 .gamer-pics {
@@ -108,17 +245,20 @@ nav select {
 
 .content {
   display: flex;
-  padding: 100px;
-  justify-content: space-between;
+  padding: 5%;
+  justify-content: space-around;
   color: black;
 }
 
 .content p {
   text-align: center;
+
 }
 
-.white-background h2 {
+.white-background h1 {
   color: black;
+  font-size: 36px;
+  padding: 15px 0 0 0;
 }
 
 .gray-background {
@@ -126,13 +266,17 @@ nav select {
   color: black;
 }
 
+.testimonial {
+  padding: 0 5%;
+}
 .quote, .quoter {
   margin: auto;
   text-align: center;
   font-size: 36px;
   font-style: italic;
-  font-weight: light;
-  color: rgb(26, 26, 26)
+  font-weight: 100;
+  line-height: 1.5;
+  color: rgb(26, 26, 26);
 }
 
 .quote {
@@ -155,9 +299,8 @@ nav select {
 
 .blue-background {
   background-color: #3882f6;
-  padding: 20px 40px 20px 40px;
   border-radius: 10px;
-  margin: 10%;
+  margin: 15%;
 }
 
 .cta {
@@ -169,13 +312,18 @@ nav select {
 .cta button {
   border: 2px solid white;
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 90%;
   padding: 10px
 }
 
+.cta-child-1 {
+  padding-right: 10px;
+}
 .cta-child-2 {
-  justify-content: end;
-  margin: auto;
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-box:hover {
@@ -184,4 +332,15 @@ nav select {
   transform: scale(1.1);
   transform-origin: center;
 
+}
+
+
+.footer {
+  background-color: #1f2937;
+  padding: 20px;
+}
+
+.footer p {
+  font-size: 18px;
+  font-style: italic;
 }
